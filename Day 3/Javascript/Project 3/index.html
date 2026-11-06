@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Whack a Mole</title>
+<style>
+body{text-align:center;font-family:Arial;background:#d5f5e3}
+.game{display:grid;grid-template-columns:repeat(3,80px);gap:10px;justify-content:center;margin:20px}
+.hole{background:#795548;border-radius:50%;width:80px;height:80px;font-size:40px;cursor:pointer}
+button{padding:10px;background:green;color:white;border:0;cursor:pointer}
+</style>
+</head>
+<body>
+
+<h1>🔨 MEVI WHACK-A-MOLE</h1>
+<h3>Score: <span id="score">0</span> | Time: <span id="time">30</span></h3>
+<button onclick="start()">START GAME</button>
+
+<div class="game">
+<div class="hole" onclick="hit(0)"></div><div class="hole" onclick="hit(1)"></div><div class="hole" onclick="hit(2)"></div>
+<div class="hole" onclick="hit(3)"></div><div class="hole" onclick="hit(4)"></div><div class="hole" onclick="hit(5)"></div>
+<div class="hole" onclick="hit(6)"></div><div class="hole" onclick="hit(7)"></div><div class="hole" onclick="hit(8)"></div>
+</div>
+
+<h3 id="msg">Press Start to Play!</h3>
+
+</body>
+</html>
+<body>
+<script>
+    let score=0,time=30,active=-1,running=false;
+    let holes=document.querySelectorAll(".hole"),timer,clock;
+
+    function show(){
+        holes.forEach(h=>h.innerHTML="");
+        active=Math.floor(Math.random()*9);
+        holes[active].innerHTML="🙈";
+    }
+
+    function hit(i){
+        if(running && i===active){
+            score+=10;
+            document.getElementById("score").ineerHTML=score;
+            show();
+        }
+    }
+    function start(){
+        if(running)return;
+        score=0;time=30;running=true;
+        document.getElementById("score").innerHTML=0;
+        document.getElementById("msg").innerHTML="catch the mole!";
+        show();
+        timer=setInterval(show,1000);
+        clock=setInterval(()=>{
+            document.getElementById("time").innerHTML=--time;
+            if(time===0){
+                clearInterval(timer);clearinterval(clock);
+                running=false;active=-1;
+                holes.forEach(h=>h.innerHTML="");
+                document.getElementById("msg").innerHTML="game Over! Score:"+score;
+            }
+        },1000)
+    }
+</script>    
+</body>

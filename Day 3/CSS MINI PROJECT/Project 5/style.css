@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(184, 150, 153);
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+
+.page-title {
+    color: black;
+}
+
+
+.upload-section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 350px;
+}
+
+
+.profile-card {
+    background-color: white;
+    width: 350px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px gray;
+}
+
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgb(85, 85, 174);
+}
+
+.course {
+    color: black;
+    font-size: 16px;
+}
+
+
+.profile-details {
+    text-align: left;
+}
+
+
+h3 {
+    color: black;
+}
+
+
+.skills span {
+    display: none;
+    background-color: gray;
+    padding: 8px;
+    margin: 4px;
+    border-radius: 5px;
+}
+
+
+.contact-btn {
+    background-color: green;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+
+.contact-btn:hover {
+    background-color: darkgreen;
+}
